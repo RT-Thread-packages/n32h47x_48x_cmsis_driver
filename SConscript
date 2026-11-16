@@ -9,15 +9,15 @@ cwd = GetCurrentDir()
 
 # Initialize include paths and source files list
 path = [os.path.join(cwd, 'device')]
-src = [os.path.join(cwd, 'device', 'system_n32h47x_48x.c')]
+src = [os.path.join('device', 'system_n32h47x_48x.c')]
 
 # Select chip's startup file
 if rtconfig.PLATFORM in ['gcc', 'llvm-arm']:
-    src += [os.path.join(cwd, 'device', 'startup', 'startup_n32h47x_48x_gcc.s')]
+    src += [os.path.join('device', 'startup', 'startup_n32h47x_48x_gcc.s')]
 elif rtconfig.PLATFORM in ['armcc', 'armclang']:
-    src += [os.path.join(cwd, 'device', 'startup', 'startup_n32h47x_48x.s')]
+    src += [os.path.join('device', 'startup', 'startup_n32h47x_48x.s')]
 elif rtconfig.PLATFORM in ['iccarm']:
-    src += [os.path.join(cwd, 'device', 'startup', 'startup_n32h47x_48x_EWARM.s')]
+    src += [os.path.join('device', 'startup', 'startup_n32h47x_48x_EWARM.s')]
 
 # Define the build group
 group = DefineGroup('Libraries-CMSIS', src, depend=['PKG_USING_N32H47X_48X_CMSIS_DRIVER'], CPPPATH=path)
